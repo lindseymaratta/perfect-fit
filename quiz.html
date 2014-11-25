@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Oxygen' rel='stylesheet' type='text/css'>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="main.css">
+<!-- begin quiz script -->
+<script>
+function finish() {
+	var ext = '.html';
+	var results = new Array("none","be-er","do-er");
+	var nums = new Array(3);
+	for(var i = 0; i < nums.length; i++) nums[i] = 0;
+	for(var i = 1; i <= 14; i++) {
+		var q = document.forms['quiz'].elements['question_'+i];
+		if(q[0].type=='checkbox') {
+			var n = 0;
+		}
+		for(var j = 0; j < q.length; j++) {
+			if(q[j].checked) {
+				var a = q[j].value.split(',');
+				for(var k = 0; k < a.length; k++) {
+					nums[a[k]]++;
+				}
+				if(q[j].type=='radio') break;
+				else n++;
+			}
+			if(j == q.length-1&&q[j].type=='radio') {nums[0]++;}
+		}
+		if(q[0].type=='checkbox'&&((document.forms['quiz'].elements['question_'+i+'_min']&&n<document.forms['quiz'].elements['question_'+i+'_min'].value)||(document.forms['quiz'].elements['question_'+i+'_max']&&n>document.forms['quiz'].elements['question_'+i+'_max'].value))) nums[0]++;
+	}
+	var j = new Array('0');
+	for (i in nums) if(nums[i]>nums[j[0]]){j=new Array(''+i);} else if(nums[i]==nums[j[0]])j[j.length] = i;
+	//var o = '';for(var i in results)o+=results[i]+'='+nums[i]+'\n';
+	//alert(o);
+	if(nums[0]!=0) {
+		alert('You missed or incorrectly answered '+nums[0]+' questions!');
+	}
+	else if(j[0]==0) {
+		alert('No result could be determined.');
+	}
+	else {
+		location = results[j[0]]+ext;
+	}
+}
+</script>
+<!-- end quiz script -->          
+    
+<title>Find Your temperament Type Quiz - The Perfect Fit</title>
+<meta name="viewport" content="width=device-width, minimumscale=
+1.0, maximum-scale=1.0" />
+
+</head>
+&nbsp
+<body>
+<div id="container"><div itemscope itemtype="http://schema.org/Book">
+<div itemscope itemtype="http://schema.org/Book"><div id="header">
+       <h1><span itemprop="name">The Perfect Fit</span></h1>
+        <h2><span itemprop="author">by Sandra K. Woods, PhD.</span></h2>
+</div>
+    <nav><ul>
+            <li><a href="index.html">home</a>
+            <li><a href="author.html">about the author</a></li>
+            <li><a href="quiz.html">find your temperament type</a></li>
+            <li><a href="http://www.amazon.com/The-Perfect-Fit-Sandra-Woods/dp/1491726385/ref=sr_1_1?ie=UTF8&qid=1404817179&sr=8-1&keywords=the+perfect+fit+sandra+k+woods">buy the book</a></li>
+</ul>
+        </nav>
+    <!--end of navigation ul-->
+<div class="text"><h3>Find your temperament type quiz</h3><p>The Perfect Fit by Sandra K. Woods, phD. explores the theory of two basic temperament types: that of the "Be-er" and one of the "Do-er".  Use this quick personality inventory to find out which temperament type you are, and what that means for you</p></div>
+<div id="quiz">
+    
+<!-- begin quiz html -->
+<form name="quiz" action="javascript:finish();">
+<table>
+<tr>
+<td width="66.6%">
+Do you feel pressure to get things done in a now or never manner?
+</td>
+<td>
+<input name="question_1" type="radio" value="1"> Yes
+
+</td><td>
+ 
+<input name="question_1" type="radio" value="2"> No
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+Do you tend to take your time in completing a task?
+</td>
+<td>
+ 
+<input name="question_2" type="radio" value="2"> Yes
+ 
+</td>
+<td>
+
+<input name="question_2" type="radio" value="1"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ Do you enjoy being the center of attention?  
+ 
+</td>
+<td>
+ 
+<input name="question_3" type="radio" value="1"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_3" type="radio" value="2"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ 
+ Do you prefer to watch from the sidelines before joining a social group?  
+ 
+</td>
+<td>
+ 
+<input name="question_4" type="radio" value="2"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_4" type="radio" value="1"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ 
+ Do you enjoy direct, open expressions of feeling?  
+ 
+</td>
+<td>
+ 
+<input name="question_5" type="radio" value="1"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_5" type="radio" value="2"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ 
+ Do you prefer the indirect approach when it comes to telling someone how you feel?  
+ 
+</td>
+<td>
+ 
+<input name="question_6" type="radio" value="2"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_6" type="radio" value="1"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ 
+ Does being alone make you feel uncomfortable?  
+ 
+</td>
+<td>
+ 
+<input name="question_7" type="radio" value="1"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_7" type="radio" value="2"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ 
+ Do you feel the need to withdraw from the banquet of social situations more than usual?  
+ 
+</td>
+<td>
+ 
+<input name="question_8" type="radio" value="2"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_8" type="radio" value="1"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ 
+ Do you tend to think things through before you act?  
+ 
+</td>
+<td>
+ 
+<input name="question_9" type="radio" value="2"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_9" type="radio" value="1"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ 
+ Do you tend to carefully plan your life and move forward cautiously?  
+ 
+</td>
+<td>
+ 
+<input name="question_10" type="radio" value="2"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_10" type="radio" value="1"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ 
+ Do you tend to be on the quiet and shy side?  
+ 
+</td>
+<td>
+ 
+<input name="question_11" type="radio" value="2"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_11" type="radio" value="1"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ 
+ Do you tend to live for the moment?  
+ 
+</td>
+<td>
+ 
+<input name="question_12" type="radio" value="1"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_12" type="radio" value="2"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ 
+ Do you often act impulsively?  
+ 
+</td>
+<td>
+ 
+<input name="question_13" type="radio" value="1"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_13" type="radio" value="2"> No
+ 
+</td>
+</tr>
+</table>
+<br /><table>
+<tr>
+<td width="66.6%">
+ 
+ Do you find it difficult to keep confidences?  
+ 
+</td>
+<td>
+ 
+<input name="question_14" type="radio" value="1"> Yes
+ 
+</td>
+<td>
+ 
+<input name="question_14" type="radio" value="2"> No
+ 
+</td>
+</tr>
+</table>
+<br /> <p style="text-align: center;"><INPUT TYPE="submit" value="Finish">
+ <INPUT TYPE="reset" value="Reset" ></p>
+</form>
+<!-- end quiz html -->       
+</div></div>
+    <br class="clear">
+    <br class="clear">
+    </div></div>
+<footer>
+<p> <a href="index.html">Home</a> | <a href="author.html">About the author</a>| <a href="quiz.html">Find your temperament type</a> | <a href="http://www.amazon.com/The-Perfect-Fit-Sandra-Woods/dp/1491726385/ref=sr_1_1?ie=UTF8&qid=1404817179&sr=8-1&keywords=the+perfect+fit+sandra+k+woods">Buy the book</a> &nbsp &nbsp &nbsp &copy; Copyright 2014 | Lindsey Maratta</p>
+</footer></body>
+</html> 
