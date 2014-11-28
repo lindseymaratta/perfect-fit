@@ -228,6 +228,7 @@ footer a:hover{
 `   }
         
 .bqstart {
+    font-family: georgia, serif;
      float: left;
     height: 25px;
      margin-top: -35px;
@@ -239,6 +240,7 @@ footer a:hover{
  }
 
  .bqend {
+    font-family: georgia, serif;
      float: right;
      height: 25px;
      margin-top: -10px;
